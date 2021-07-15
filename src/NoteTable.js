@@ -3,16 +3,6 @@ import { Table, Button } from 'reactstrap';
 
 const NoteTable = (props) => {
 
-    const editNote = (note) => {
-        fetch(`http://localhost:3000/notes/${note.id}`, {
-            method: 'PUT',
-            headers: new Headers ({
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${props.token}`
-            })
-        })
-    }
-
     const deleteNote = (note) => {
         fetch(`http://localhost:3000/notes/${note.id}`, {
             method: 'DELETE',
@@ -32,7 +22,7 @@ const NoteTable = (props) => {
                 <td>{note.plantName}</td>
                 <td>{note.note}</td>
                 <td>
-                    <Button onClick={() => {editNote(note)}}>edit</Button>
+                    <Button onClick={() => {editNote(note); props.updateOn()}}>edit</Button>
                     <Button onCLick={() => {deleteNote(note)}}>delete</Button>
                 </td>
                 </tr>
