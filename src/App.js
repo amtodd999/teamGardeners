@@ -1,25 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import Sitebar from './home/Navbar';
+import './App.css';
+import {Button} from 'reactstrap';
+import NoteIndex from './notes/NoteIndex';
 import Auth from './auth/Auth';
-
-// Store token in the parent component (App.js) so we can pass 
-// token as a prop to all of the child components that need it.
-
-// UseState hook to create new state variable - it will start empty, 
-// be given a value upon logging in, then emptied upon logout.
-
-// The second argument of useState allows us to change our sessionToken
-// state variable.
-
-// We have an effect that runs once upon initial component load.  It updates
-// our sessionToken state variable if Chrome has saved a sessionToken in localStorage.  
-// Because we pass an empty array as a second argument, there is no change our effect
-// is tracking to re-run later, so the effect runs only upon initial component load.
-
-// This function takes in a token and saves it two places--both in our localStorage and
-// in our state variable, sessionToken.  The localStorage is a secure place to store this
-// data, and will persist as long as out browser is open.  The state variable allows
-// child components to quickly access the sessionToken for use.
+import Sitebar from './home/Navbar';
+import React, { useEffect, useState } from 'react';
 
 function App() {
   const [sessionToken, setSessionToken] = useState(''); 
@@ -54,6 +38,7 @@ function App() {
   return (
     <div>
       <Sitebar clickLogout={clearToken}/>
+{/* protectedViews function above calls the NoteIndex file */}
       {/* {protectedViews()} */}
       <Auth updateToken={updateToken} />
     </div>
