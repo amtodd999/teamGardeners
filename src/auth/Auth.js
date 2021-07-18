@@ -6,6 +6,7 @@ import Login from './Login';
 const Auth = (props) => {
     return(
         <Container className="auth-container">
+            <Row id="homepage-row1">Welcome to Team Gardener</Row>
             <Row>
                 <Col md="6">
                     <Signup updateToken={props.updateToken}/>

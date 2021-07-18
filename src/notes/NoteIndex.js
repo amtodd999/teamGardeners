@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import NoteEdit from './NoteEdit';
-import NoteTable from './NoteAdd';
-import NoteCreate from './NoteCreate';
+import NoteTable from './NoteTable';
+import NoteAdd from './NoteAdd';
 
 
 const NoteIndex = (props) => {
@@ -11,7 +11,7 @@ const NoteIndex = (props) => {
     const [noteToUpdate, setNoteToUpdate] = useState({});
 
     const fetchNotes = () => {
-        fetch('http://localhost:3000/notes/', {
+        fetch('http://localhost:3000/notes/myNotes', {
             method: 'GET',
             headers: new Headers ({
                 'Content-type': 'application/json',
@@ -25,6 +25,7 @@ const NoteIndex = (props) => {
 
     const editUpdateNote = (note) => {
         setNoteToUpdate(note);
+        console.log("noteToUpdate " + note);
     }
 
     const updateOn = () => {
@@ -41,12 +42,9 @@ useEffect(() => {
 return(
     <Container>
         <Row>
-            <Col md="3">
-                <NoteTable notes={notes} editUpdateNote={editUpdateNote} updateOn={updateOn} fetchNotes={fetchNotes} token={props.token} />
-                
-            </Col>
+            <NoteAdd fetchNotes={fetchNotes} token={props.token} />
+            <NoteTable notes={notes} editUpdateNote={editUpdateNote} updateOn={updateOn} fetchNotes={fetchNotes} token={props.token} />
             {updateActive ? <NoteEdit noteToUpdate={noteToUpdate} updateOff={updateOff} token={props.token} fetchNotes={fetchNotes}/>: <> </>}
-            
         </Row>
     </Container>
 )

@@ -4,17 +4,18 @@ import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } 
 const NoteEdit = (props) => {
     const [editPlant, setEditPlant] = useState(props.noteToUpdate.plant_name);
     const [editNote, setEditNote] = useState(props.noteToUpdate.note);
+
     const noteUpdate = (event, note) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/notes/${props.noteToUpdate.id}`, {
+        fetch(`http://localhost:3000/notes/update/${props.noteToUpdate.id}`, {
             method: 'PUT',
-            body: JSON.stringify({log: {plant_name: editPlant, note: editNote}}),
+            body: JSON.stringify({notes: {plant_name: editPlant, note: editNote}}),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                // 'Authorization': `Bearer ${props.token}`
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjI2Mzk0MzE4LCJleHAiOjE2MjY0ODA3MTh9.M3uNe5rbh0NbR7psjqEjCN2Bl67MhMYCOmgyyGh7CbM'
+                'Authorization': `Bearer ${props.token}`
             })
-        }).then((res) => {
+        })
+        .then((res) => {
             props.fetchNotes();
             props.updateOff();
         })
@@ -29,13 +30,12 @@ const NoteEdit = (props) => {
         <div>
             <Form onSubmit={noteUpdate}>
                 <FormGroup>
-                    <Label htmlFor="plant">Edit</Label>
+                    <Label htmlFor="plant">Edit Plant Name</Label>
                     <Input name="plant" value={editPlant} onChange={(e) => setEditPlant(e.target.value)}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor="note">Edit</Label>
-                    <Input type="select" name="note" value={editNote}
-                    onChange={(e) => setEditNote(e.target.value)}/>
+                    <Label htmlFor="note">Edit Your Note</Label>
+                    <Input name="note" value={editNote} onChange={(e) => setEditNote(e.target.value)}/>
                 </FormGroup>
                 <Button type="submit">Update your plant note</Button>
             </Form>

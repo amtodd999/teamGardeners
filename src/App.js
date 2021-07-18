@@ -1,5 +1,4 @@
 import './App.css';
-import {Button} from 'reactstrap';
 import NoteIndex from './notes/NoteIndex';
 import Auth from './auth/Auth';
 import Sitebar from './home/Navbar';
@@ -11,13 +10,13 @@ function App() {
   useEffect(() => { 
     if (localStorage.getItem('token')){
       setSessionToken(localStorage.getItem('token'));
-    }
+    } console.log("this is a test" + localStorage.getItem('token'))
+    
   }, [])
-
+  
   const updateToken = (newToken) => { 
     localStorage.setItem('token', newToken);
     setSessionToken(newToken);
-    console.log(sessionToken)
   }
 
 // Logout function - reset the state of our sessiontoken to an empty
@@ -30,17 +29,19 @@ function App() {
     setSessionToken('');
   }
 
-  // const protectedViews = () => {
-  //   return (sessionToken === localStorage.getItem('token') ? <NoteIndex token={sessionToken}/>
-  //   : <Auth updateToken={updateToken}/>)
-  // }
+  const protectedViews = () => {
+    
+    return (sessionToken === localStorage.getItem('token') ? <NoteIndex token={sessionToken}/>
+    : <Auth updateToken={updateToken}/>)
+    
+  }
 
   return (
     <div>
       <Sitebar clickLogout={clearToken}/>
 {/* protectedViews function above calls the NoteIndex file */}
-      {/* {protectedViews()} */}
-      <Auth updateToken={updateToken} />
+      {protectedViews()}
+      
     </div>
   );
 };
