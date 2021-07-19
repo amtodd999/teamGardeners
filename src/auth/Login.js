@@ -27,7 +27,7 @@ const Login = (props) => {
         <div className="bgDiv">
             <div className="loginDiv">
             <img src={logo} alt="Team Gardeners Logo" className="logoImgLogin"/>
-                <p>Welcome to your plant notebook! Keep notes safe and updated with our handy note keeper! Let the journey of gardening begin!!</p>
+                <p>Welcome to your plant notebook! Keep notes safe and updated with our handy note keeper! Let the journey of gardening begin!</p>
                 <Form onSubmit={handleSubmit}>
                     <FormGroup>
                         <Input onChange={(e) => setEmail(e.target.value)} name="email" value={email}required placeholder="email" className="formInputEmail"/>
