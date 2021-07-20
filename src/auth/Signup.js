@@ -42,17 +42,16 @@ const Signup = (props) => {
 
     return(
         <div> 
-            <h1>Sign Up</h1>
+            <h4 className="signupHeader">create an account</h4>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                    <Label htmlFor="email">Email</Label>
-                    <Input onChange={(e) => setEmail(e.target.value)} name="email" value={email}/>
+                    <Input onChange={(e) => setEmail(e.target.value)} name="email" value={email} placeholder="email" className="formInputEmail"/>
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor="password">Password</Label>
-                    <Input onChange={(e) => setPassword(e.target.value)} name="password" type="password" value={password}/>
+                    <Input onChange={(e) => setPassword(e.target.value)} name="password" type="password" value={password} placeholder="password" className="formInputPassword" />
                 </FormGroup>
-                <Button type="submit">Sign Up</Button>
+                <Button type="submit" className="modalSignupBtn">Sign Up</Button>
+                
             </Form>
         </div>
     );
