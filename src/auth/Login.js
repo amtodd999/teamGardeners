@@ -20,7 +20,9 @@ const Login = (props) => {
             (response) => response.json()
         ).then((data) => {
             props.updateToken(data.token)
+
             console.log(data.token)
+            alert("You are logged in!")
         })
     };
       
@@ -39,8 +41,8 @@ const Login = (props) => {
                 <p>Welcome to your plant notebook! Keep notes safe and updated with our handy note keeper! Let the journey of gardening begin!</p>
                 <Form onSubmit={handleSubmit}>
                     <FormGroup>
-                        <Input onChange={(e) => setEmail(e.target.value)} name="email" value={email}required placeholder="email" className="formInputEmail" />
-                    </FormGroup>
+                        <Input onChange={(e) => setEmail(e.target.value)} name="email" value={email} type="email" required placeholder="email" className="formInputEmail" />
+                          </FormGroup>
                     <FormGroup>
                         <Input onChange={(e) => setPassword(e.target.value)} name="password" type="password" value={password} required placeholder="password" className="formInputPassword"/>
                     </FormGroup>
