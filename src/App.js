@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import Sitebar from './home/Navbar';
 import Auth from './auth/Auth';
 
@@ -33,7 +33,7 @@ function App() {
   const updateToken = (newToken) => { 
     localStorage.setItem('token', newToken);
     setSessionToken(newToken);
-    console.log(sessionToken)
+    // console.log(sessionToken)
   }
 
 // Logout function - reset the state of our sessiontoken to an empty

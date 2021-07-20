@@ -24,7 +24,7 @@ const Signup = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // console.log(email, password);
+        console.log(email, password);
         fetch("http://localhost:3000/user/create", {
             method: 'POST', 
             body: JSON.stringify({user:{email: email, password: password}}),
@@ -34,7 +34,10 @@ const Signup = (props) => {
         }).then(
             (response) => response.json()
         ).then((data) => {
-            props.updateToken(data.sessionToken)
+            props.updateToken(data.token)
+            alert("You are now signed up! Please login to create notes.")
+            console.log(data)
+
         })
     };
 
@@ -44,11 +47,11 @@ const Signup = (props) => {
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="email">Email</Label>
-                    <Input onChange={(e) => setEmail(e.target.value)} name="email" value={email}/>
+                    <Input onChange={(e) => setEmail(e.target.value)} name="email" value={email} type="email" required/>
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password">Password</Label>
-                    <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password}/>
+                    <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password} type="password" minlength="5"/>
                 </FormGroup>
                 <Button type="submit">Sign Up</Button>
             </Form>
