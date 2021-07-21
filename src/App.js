@@ -1,7 +1,6 @@
 import './App.css';
 import NoteIndex from './notes/NoteIndex';
 import Auth from './auth/Auth';
-import Sitebar from './home/Navbar';
 import React, { useEffect, useState } from 'react';
 
 function App() {
