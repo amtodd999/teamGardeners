@@ -19,7 +19,7 @@ const NoteTable = (props) => {
             console.log(props.notes)
             return (
                 <tr key={index}>
-                    {/* <th scope="row">{note.id}</th> */}
+                    {/* <th>{note.photo}</th> */}
                     <th scope="row">{note.plant_name}</th>
                     <td>{note.note}</td>
                     <td>
@@ -38,8 +38,8 @@ const NoteTable = (props) => {
             <Table striped>
                 <thead>
                     <tr>
+                        <th>Plant Photo</th>
                         <th>Plant Name</th>
-                        {/* <th>Plant Name</th> */}
                         <th>Plant Note</th>
                     </tr>
                 </thead>
