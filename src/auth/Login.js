@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
-import {Form, FormGroup, Label, Input, Button} from 'reactstrap';
+import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter, Row, Col } from 'reactstrap';
+import logo from "./assets/team-gardener-logo.png";
+import Signup from "./Signup";
 
 const Login = (props) => {
     const [email, setEmail] = useState('');
@@ -18,24 +20,44 @@ const Login = (props) => {
             (response) => response.json()
         ).then((data) => {
             props.updateToken(data.token)
+
             console.log(data.token)
+            alert("You are logged in!")
         })
     };
-
+      
+        const {
+            className
+        } = props;
+        const [modal, setModal] = useState(false);
+      
+        const toggle = () => setModal(!modal);
+        
+    
     return(
-        <div>
-            <h1>Login</h1>
-            <Form onSubmit={handleSubmit}>
-                <FormGroup>
-                    <Label htmlFor="email">Email</Label>
-                    <Input onChange={(e) => setEmail(e.target.value)} name="email" value={email}required/>
-                </FormGroup>
-                <FormGroup>
-                    <Label htmlFor="password">Password</Label>
-                    <Input onChange={(e) => setPassword(e.target.value)} name="password" type="password" value={password} required/>
-                </FormGroup>
-                <Button type="submit">Login</Button>
-            </Form>
+        <div className="bgDiv">
+            <div className="loginDiv">
+            <img src={logo} alt="Team Gardeners Logo" className="logoImgLogin"/>
+                <p>Welcome to your plant notebook! Keep notes safe and updated with our handy note keeper! Let the journey of gardening begin!</p>
+                <Form onSubmit={handleSubmit}>
+                    <FormGroup>
+                        <Input onChange={(e) => setEmail(e.target.value)} name="email" value={email} type="email" required placeholder="email" className="formInputEmail" />
+                          </FormGroup>
+                    <FormGroup>
+                        <Input onChange={(e) => setPassword(e.target.value)} name="password" type="password" value={password} required placeholder="password" className="formInputPassword"/>
+                    </FormGroup>
+                    <Button type="submit" className="loginBtn">login</Button>
+                    <Button onClick={toggle} className="signUpBtn">sign up</Button>
+                    <Modal isOpen={modal} toggle={toggle} className={className}>
+                    <ModalHeader className="modalHeader">
+                        <Button onClick={toggle} className="modalCloseBtn">X</Button>
+                    </ModalHeader>
+                        <ModalBody>
+                                <Signup />
+                            </ModalBody>
+                    </Modal>
+                </Form>
+            </div>
         </div>
     );
 };
