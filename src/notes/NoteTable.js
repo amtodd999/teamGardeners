@@ -38,7 +38,7 @@ const NoteTable = (props) => {
             <Table striped>
                 <thead>
                     <tr>
-                        <th>Plant Photo</th>
+                        {/* <th>Plant Photo</th> */}
                         <th>Plant Name</th>
                         <th>Plant Note</th>
                     </tr>
