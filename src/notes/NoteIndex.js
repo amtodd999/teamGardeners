@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Button, Col } from 'reactstrap';
 import NoteEdit from './NoteEdit';
 import NoteTable from './NoteTable';
 import NoteAdd from './NoteAdd';
@@ -41,6 +41,7 @@ useEffect(() => {
 }, [])
 return(
     <Container>
+        <Button id="logoutBtn" size="sm" onClick={props.clickLogout}>Logout</Button>
         <Row>
             <NoteAdd fetchNotes={fetchNotes} token={props.token} />
             <NoteTable notes={notes} editUpdateNote={editUpdateNote} updateOn={updateOn} fetchNotes={fetchNotes} token={props.token} />

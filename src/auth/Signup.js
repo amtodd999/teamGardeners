@@ -37,8 +37,6 @@ const Signup = (props) => {
             props.updateToken(data.token)
 
             console.log(data.token)
-          
-            alert("You are now signed up! Please login to create notes.")
             console.log(data)
 
 
