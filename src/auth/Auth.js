@@ -1,6 +1,6 @@
 import React from 'react';
 import {Container, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
-import Signup from './Signup';
+// import Signup from './Signup';
 import Login from './Login';
 
 const Auth = (props) => {

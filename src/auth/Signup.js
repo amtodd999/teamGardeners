@@ -24,7 +24,7 @@ const Signup = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // console.log(email, password);
+        console.log(email, password);
         fetch("http://localhost:3000/user/create", {
             method: 'POST', 
             body: JSON.stringify({user:{email: email, password: password}}),
@@ -35,8 +35,10 @@ const Signup = (props) => {
             (response) => response.json()
         ).then((data) => {
             props.updateToken(data.token)
-            console.log(data.token)
 
+            // console.log(data.token)
+            alert("You are now signed up! Please login to create notes.")
+            console.log(data)
         })
     };
 

@@ -5,41 +5,22 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .button {
   margin: 1em;
-}
-
-#homepage-row1 {
-  textAlign: 'center';
-  justifyContent: 'center';
-  alignItems: 'center';
 }
 
 /* ======== login page ======= */
 
 /* logo style */
+
+.logoImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10%;
+  height: auto;
+  margin-top: 30px
+}
 
 .logoImgLogin {
   display: block;
@@ -52,6 +33,33 @@
 }
 
 /* div style */
+
+.mainDiv {
+  background-color: #afb6d1;
+  border-radius: 30px;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  margin: 20px 80px 80px 80px;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 40px;
+  color:#423138;
+  font-weight: 600;
+  text-align: center;
+  height: auto;
+}
+
+.notesViewDiv {
+  background-color: #dfe2ed;
+  border-radius: 30px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+  /* margin: 80px 80px 80px 80px; */
+  font-weight: 600;
+  text-align: center;
+}
 
 .bgDiv {
   position: fixed;
@@ -221,5 +229,28 @@ color: #f0eada !important;
   font-weight: 700 !important;
   font-size: 40px !important;
   color:#423138 !important;
+  padding-bottom: 20px !important;
+}
+
+/* table style */
+
+.tableHeader {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  color:#423138 !important;
+  padding-bottom: 20px !important;
+}
+
+.fetchText {
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  color:#423138 !important;
   padding-bottom: 40px !important;
+}
+
+.tableSize {
+  width: 80%;
+  height: auto;
 }
