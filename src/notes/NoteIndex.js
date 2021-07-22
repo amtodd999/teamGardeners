@@ -41,7 +41,7 @@ useEffect(() => {
 }, [])
 return(
     <Container>
-        <Button id="logoutBtn" size="sm" onClick={props.clickLogout}>Logout</Button>
+        {/* <Button id="logoutBtn" size="sm" onClick={props.clickLogout}>Logout</Button> */}
         <Row>
             <NoteAdd fetchNotes={fetchNotes} token={props.token} />
             <NoteTable notes={notes} editUpdateNote={editUpdateNote} updateOn={updateOn} fetchNotes={fetchNotes} token={props.token} />
