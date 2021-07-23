@@ -3,6 +3,7 @@ import {Container, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter} from 'r
 import Signup from './Signup';
 import Login from './Login';
 
+
 const Auth = (props) => {
     return(
         <div>

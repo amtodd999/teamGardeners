@@ -1,10 +1,12 @@
 import React from 'react';
 import { Table, Button } from 'reactstrap';
+import APIURL from '../helpers/environment';
 
 const NoteTable = (props) => {
 
     const deleteNote = (note) => {
-        fetch(`http://localhost:3000/notes/delete/${note.id}`, {
+        // fetch(`http://localhost:3000/notes/delete/${note.id}`, {
+        fetch(`${APIURL}/notes/delete/${note.id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
