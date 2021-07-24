@@ -3,12 +3,15 @@ import { Container, Row, Button } from 'reactstrap';
 import NoteEdit from './NoteEdit';
 import NoteTable from './NoteTable';
 import NoteAdd from './NoteAdd';
+import NotePhoto from './NotePhoto';
 
 
 const NoteIndex = (props) => {
     const [notes, setNotes] = useState([]);
     const [updateActive, setUpdateActive] = useState(false); 
+    const [updateActivePhoto, setUpdateActivePhoto] = useState(false);
     const [noteToUpdate, setNoteToUpdate] = useState({});
+    const [editPhoto, setEditPhoto] = useState({});
 
     const fetchNotes = () => {
         fetch('http://localhost:3000/notes/myNotes', {
@@ -28,6 +31,20 @@ const NoteIndex = (props) => {
         console.log("noteToUpdate " + note);
     }
 
+    const getPhoto = (note) => {
+        setEditPhoto(note);
+        console.log(note);
+        
+    } 
+
+    const updatePhotoOn = () => {
+        setUpdateActivePhoto(true);
+    }
+
+    const updatePhotoOff = () => {
+        setUpdateActivePhoto(false);
+    }
+
     const updateOn = () => {
         setUpdateActive(true);
     }
@@ -44,8 +61,11 @@ return(
         <Button id="logoutBtn" size="sm" onClick={props.clickLogout}>Logout</Button>
         <Row>
             <NoteAdd fetchNotes={fetchNotes} token={props.token} />
-            <NoteTable notes={notes} editUpdateNote={editUpdateNote} updateOn={updateOn} fetchNotes={fetchNotes} token={props.token} />
-            {updateActive ? <NoteEdit noteToUpdate={noteToUpdate} updateOff={updateOff} token={props.token} fetchNotes={fetchNotes}/>: <> </>}
+            <NoteTable notes={notes} editUpdateNote={editUpdateNote} getPhoto={getPhoto} updateOn={updateOn} updatePhotoOn={updatePhotoOn} fetchNotes={fetchNotes} token={props.token} />
+            {updateActive ? 
+            <NoteEdit noteToUpdate={noteToUpdate} updateOff={updateOff} token={props.token} fetchNotes={fetchNotes}/>: <> </>}
+            {updateActivePhoto ? 
+            <NotePhoto editPhoto={editPhoto} updatePhotoOff={updatePhotoOff} token={props.token} fetchNotes={fetchNotes}/> :<> </>}
         </Row>
     </Container>
 )

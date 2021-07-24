@@ -12,22 +12,22 @@ const NoteAdd = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch('http://localhost:3000/notes/add/', {
-            method: 'POST',
-            body: JSON.stringify({ notes: { plant_name: plantName, note: note } }),
-            headers: new Headers({
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${props.token}`
-            })
-        }).then((res) => res.json())
-            .then((plantData) => {
-                console.log(plantData);
-                setPlantName('');
-                setNote('');
-                props.fetchNotes();
-            })
-    }
-
+            fetch('http://localhost:3000/notes/add/', {
+                method: 'POST',
+                body: JSON.stringify({ notes: { plant_name: plantName, note: note } }),
+                headers: new Headers({
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${props.token}`
+                })
+            }).then((res) => res.json())
+                .then((plantData) => {
+                    console.log(plantData);
+                    setPlantName('');
+                    setNote('');
+                    props.fetchNotes();
+                })
+        }
+        
     return (
         <>
 

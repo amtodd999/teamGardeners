@@ -17,9 +17,11 @@ const NoteTable = (props) => {
     const noteMapper = () => {
         return props.notes.map((note, index) => {
             console.log(props.notes)
+            if(props.notes.photo) {
             return (
                 <tr key={index}>
-                    {/* <th>{note.photo}</th> */}
+                    <th><img src={note.photo} alt="No image" />
+                        </th>
                     <th scope="row">{note.plant_name}</th>
                     <td>{note.note}</td>
                     <td>
@@ -28,7 +30,23 @@ const NoteTable = (props) => {
                     </td>
                 </tr>
             )
+            }
+            else {
+                return (
+                    <tr key={index}>
+                        <th><Button className="button" onClick={() => { props.getPhoto(note); props.updatePhotoOn() }}>add photo</Button>
+                            </th>
+                        <th scope="row">{note.plant_name}</th>
+                        <td>{note.note}</td>
+                        <td>
+                            <Button className="button" onClick={() => { props.editUpdateNote(note); props.updateOn() }}>edit</Button>
+                            <Button className= "button" onClick={() => { if(window.confirm('Are you sure you want to delete this note?')) deleteNote(note) }}>delete</Button>
+                        </td>
+                    </tr>
+                )
+            }
         })
+    
     }
 
     return (
@@ -38,7 +56,7 @@ const NoteTable = (props) => {
             <Table striped>
                 <thead>
                     <tr>
-                        {/* <th>Plant Photo</th> */}
+                        <th>Plant Photo</th>
                         <th>Plant Name</th>
                         <th>Plant Note</th>
                     </tr>
