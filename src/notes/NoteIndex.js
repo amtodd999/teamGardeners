@@ -29,11 +29,12 @@ const NoteIndex = (props) => {
     const editUpdateNote = (note) => {
         setNoteToUpdate(note);
         console.log("noteToUpdate " + note);
+        console.log(editPhoto)
     }
 
     const getPhoto = (note) => {
-        setEditPhoto(note);
-        console.log(note);
+        setEditPhoto(note.id);
+        console.log("noteIndex note id" + note.id);
         
     } 
 

@@ -34,7 +34,7 @@ const NoteTable = (props) => {
             else {
                 return (
                     <tr key={index}>
-                        <th><Button className="button" onClick={() => { props.getPhoto(note); props.updatePhotoOn() }}>add photo</Button>
+                        <th><Button className="button" onClick={() => { props.getPhoto(note); props.updatePhotoOn() }}>dumb photo</Button>
                             </th>
                         <th scope="row">{note.plant_name}</th>
                         <td>{note.note}</td>

@@ -4,12 +4,12 @@ import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } 
 const NotePhoto = (props) => {
 
     const [plantPhoto, setPlantPhoto] = useState('');
-    const [plantPhotoId, setPlantPhotoId] = useState(props.editPhoto.id);
-    const [plantPhotoName, setPlantPhotoName] = useState(props.editPhoto.plant_name);
+    const [plantPhotoId, setPlantPhotoId] = useState(props.editPhoto);
+    // const [plantPhotoName, setPlantPhotoName] = useState(props.editPhoto.plant_name);
     
 
     const addPhoto = (event, note) => {
-        // event.preventDefault();
+        event.preventDefault();
         fetch(`http://localhost:3000/photo/update/${plantPhotoId}`, {
             method: 'PUT',
             body: JSON.stringify({notes: {photo: plantPhoto}}),
@@ -35,10 +35,10 @@ const NotePhoto = (props) => {
         //     <ModalHeader></ModalHeader>
         // </Modal>
         <div>
-            <Form onSubmit={addPhoto()}>
+            <Form onSubmit={addPhoto}>
                 <FormGroup>
                     <Label htmlFor="photo">Would you like to add a photo?</Label>
-                    <Input name="photo" value={plantPhoto} onChange={(e) => setPlantPhoto(e.target.value)}/>
+                    <Input name="photo" value={plantPhotoId} onChange={(e) => setPlantPhotoId(e.target.value)}/>
                 </FormGroup>
                 <Button type="submit">Add your photo</Button>
             </Form>
