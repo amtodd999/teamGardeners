@@ -30,15 +30,17 @@ const NoteEdit = (props) => {
         <div>
             <Form onSubmit={noteUpdate}>
                 <FormGroup>
-                    <Label htmlFor="plant">Edit Plant Name</Label>
-                    <Input name="plant" value={editPlant} onChange={(e) => setEditPlant(e.target.value)}/>
+                    <Label htmlFor="note" className="noteHeaderText">edit your plant name</Label>
+                    <Input name="plant" value={editPlant} onChange={(e) => setEditPlant(e.target.value)} placeholder="edit plant name" className="formInputName"/>
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor="note">Edit Your Note</Label>
-                    <Input name="note" value={editNote} onChange={(e) => setEditNote(e.target.value)}/>
+                    <Label htmlFor="note" className="noteHeaderText">edit your note</Label>
+                    <Input name="note" value={editNote} onChange={(e) => setEditNote(e.target.value)} placeholder="edit plant note" className="formInputNote"/>
                 </FormGroup>
-                <Button type="submit">Update your plant note</Button>
+                <br/>
+                <Button type="submit" className="editBtn">update</Button>
             </Form>
+            <br/>
         </div>
     )
 }

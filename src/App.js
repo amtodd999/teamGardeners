@@ -1,7 +1,7 @@
 import './App.css';
 import NoteIndex from './notes/NoteIndex';
 import Auth from './auth/Auth';
-import Sitebar from './home/Navbar';
+// import Sitebar from './home/Navbar';
 import React, { useEffect, useState } from 'react';
 
 function App() {
@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div>
-      <Sitebar clickLogout={clearToken}/>
+      {/* <Sitebar clickLogout={clearToken}/> */}
 {/* protectedViews function above calls the NoteIndex file */}
       {protectedViews()}
       
