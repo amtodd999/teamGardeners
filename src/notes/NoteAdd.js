@@ -30,23 +30,17 @@ const NoteAdd = (props) => {
         
     return (
         <>
-
-            <div className="mainDiv">
-                add a new plant note!
-                <Form className="form" onSubmit={handleSubmit}>
-                    <FormGroup>
-                        {/* <Label htmlFor="plant_name" />Plant Name
-                    <Input name="plant_name" value={plantName} onChange={(e) => setPlantName(e.target.value)} /> */}
-                        <Input name="plant_name" type="textarea" id="exampleText" placeholder="Plant name here" className="formInputName" value={plantName} onChange={(e) => setPlantName(e.target.value)} />
-                    </FormGroup>
-                    <FormGroup>
-                        {/* <Label htmlFor="note" />Plant Note
-                    <Input name="note" type="textarea" value={note} onChange={(e) => setNote(e.target.value)} /> */}
-                        <Input name="note" type="textarea" id="exampleText" placeholder="Plant note here" className="formInputName" value={note} onChange={(e) => setNote(e.target.value)} />
-                    </FormGroup>
-                    <Button className="submitBtn" type="submit">Click to Save</Button>
-                </Form>
-            </div>
+            <h4 className="signupHeader">record a plant note</h4>
+            <Form className="form" onSubmit={handleSubmit}>
+                <FormGroup>
+                    <Input name="plant_name" value={plantName} onChange={(e) => setPlantName(e.target.value)} placeholder="plant name" className="formInputName" />
+                </FormGroup>
+                <FormGroup>
+                    <Input name="note" type="textarea" value={note} onChange={(e) => setNote(e.target.value)} placeholder="plant note" className="formInputNote" />
+                </FormGroup>
+                <br/>
+                <Button className="modalSignupBtn" type="submit">save</Button>
+            </Form>
         </>
     )
 }
