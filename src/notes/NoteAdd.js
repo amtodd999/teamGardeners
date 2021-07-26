@@ -1,9 +1,13 @@
+import '../App.css';
 import React, { useState } from 'react';
+import logo from "../assets/team-gardener-logo.png";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const NoteAdd = (props) => {
     const [plantName, setPlantName] = useState('');
     const [note, setNote] = useState('');
+    const [plantPhoto, setPlantPhoto] = useState('');
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
