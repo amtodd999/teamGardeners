@@ -31,6 +31,142 @@
   margin: 1em;
 }
 
+/* ======== flower petals begin ======= */
+
+#flower { 
+  position:relative;
+  margin-left: 1270px;
+  margin-top: 100px;
+}
+
+#petalsOne {
+  width:100px;
+  height:100px;
+  margin-top: 100px 1100px;
+  position:absolute;
+  animation-name:movingpetals1;
+  animation-duration:10s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+
+#petalsTwo {
+  width:100px;
+  height:100px;
+  margin-top: 100px 1100px;
+  position:absolute;
+  animation-name:movingpetals2;
+  animation-duration:10s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+
+@keyframes movingpetals1{
+  0%{
+    transform:rotateZ(0deg);
+  }
+  100%{
+    transform:rotateZ(359deg);
+  }
+}
+
+@keyframes movingpetals2{
+  50%{
+    transform:rotateZ(50deg);
+  }
+  50%{
+    transform:rotateZ(50deg);
+  }
+}
+
+#p1 {
+  width:50px;
+  height:50px;
+  background:#dfe2ed;
+  border-bottom-left-radius:50px;
+  border-top-right-radius:50px;
+  position:absolute;
+  top:0px;
+  left:0px;
+}
+
+#p2 {
+  width:50px;
+  height:50px;
+  background:#423138;
+  border-top-left-radius:50px;
+  border-bottom-right-radius:50px;
+  position:absolute;
+  top:0px;
+  right:0px;
+}
+
+#p3 {
+  width:50px;
+  height:50px;
+  background:#423138;
+  border-top-left-radius:50px;
+  border-bottom-right-radius:50px;
+  position:absolute;
+  bottom:0px;
+  left:0px;
+}
+
+#p4 {
+  width:50px;
+  height:50px;
+  background:#dfe2ed;
+  border-bottom-left-radius:50px;
+  border-top-right-radius:50px;
+  position:absolute;
+  bottom:0px;
+  right:0px;
+}
+#p5 {
+  width:50px;
+  height:50px;
+  background:#30673f;
+  border-bottom-left-radius:50px;
+  border-top-right-radius:50px;
+  position:absolute;
+  top:0px;
+  left:0px;
+}
+
+#p6 {
+  width:50px;
+  height:50px;
+  background:#30673f;
+  border-top-left-radius:50px;
+  border-bottom-right-radius:50px;
+  position:absolute;
+  top:0px;
+  right:0px;
+}
+
+#p7 {
+  width:50px;
+  height:50px;
+  background:#30673f;
+  border-top-left-radius:50px;
+  border-bottom-right-radius:50px;
+  position:absolute;
+  bottom:0px;
+  left:0px;
+}
+
+#p8 {
+  width:50px;
+  height:50px;
+  background:#30673f;
+  border-bottom-left-radius:50px;
+  border-top-right-radius:50px;
+  position:absolute;
+  bottom:0px;
+  right:0px;
+}
+/* ======== flower petals end ======= */
+
 /* ======== login page ======= */
 
 /* logo style */
