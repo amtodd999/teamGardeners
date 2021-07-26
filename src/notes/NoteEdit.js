@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
+
 const NoteEdit = (props) => {
     const [editPlant, setEditPlant] = useState(props.noteToUpdate.plant_name);
     const [editNote, setEditNote] = useState(props.noteToUpdate.note);

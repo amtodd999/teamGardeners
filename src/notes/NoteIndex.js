@@ -4,13 +4,15 @@ import NoteEdit from './NoteEdit';
 import NoteTable from './NoteTable';
 import NoteAdd from './NoteAdd';
 import logo from "./assets/team-gardener-logo.png";
-
+import NotePhoto from './NotePhoto';
 
 const NoteIndex = (props) => {
     const [notes, setNotes] = useState([]);
     const [updateActive, setUpdateActive] = useState(false); 
+    const [updateActivePhoto, setUpdateActivePhoto] = useState(false);
     const [noteToUpdate, setNoteToUpdate] = useState({});
     const [sessionToken, setSessionToken] = useState('');
+    const [editPhoto, setEditPhoto] = useState({});
 
     const fetchNotes = () => {
         fetch('http://localhost:3000/notes/myNotes', {
@@ -28,6 +30,21 @@ const NoteIndex = (props) => {
     const editUpdateNote = (note) => {
         setNoteToUpdate(note);
         console.log("noteToUpdate " + note);
+        console.log(editPhoto)
+    }
+
+    const getPhoto = (note) => {
+        setEditPhoto(note.id);
+        console.log("noteIndex note id" + note.id);
+        
+    } 
+
+    const updatePhotoOn = () => {
+        setUpdateActivePhoto(true);
+    }
+
+    const updatePhotoOff = () => {
+        setUpdateActivePhoto(false);
     }
 
     const updateOn = () => {
@@ -77,8 +94,12 @@ return(
                     </Row>
                     </div>
                     {updateActive ? <NoteEdit noteToUpdate={noteToUpdate} updateOff={updateOff} token={props.token} fetchNotes={fetchNotes}/>: <> </>}
-                <NoteTable notes={notes} editUpdateNote={editUpdateNote} updateOn={updateOn} fetchNotes={fetchNotes} token={props.token} />
+                <NoteTable notes={notes} editUpdateNote={editUpdateNote} getPhoto={getPhoto} updateOn={updateOn}  updatePhotoOn={updatePhotoOn} fetchNotes={fetchNotes} token={props.token} />
                 {/* {updateActive ? <NoteEdit noteToUpdate={noteToUpdate} updateOff={updateOff} token={props.token} fetchNotes={fetchNotes}/>: <> </>} */}
+                {updateActive ? 
+                <NoteEdit noteToUpdate={noteToUpdate} updateOff={updateOff} token={props.token} fetchNotes={fetchNotes}/>: <> </>}
+                {updateActivePhoto ? 
+                <NotePhoto editPhoto={editPhoto} updatePhotoOff={updatePhotoOff} token={props.token} fetchNotes={fetchNotes}/> :<> </>}
             
         </div>
     </div>
