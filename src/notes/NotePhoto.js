@@ -9,7 +9,7 @@ const NotePhoto = (props) => {
     
 
     const addPhoto = (event, note) => {
-        event.preventDefault();
+        // event.preventDefault();
         fetch(`http://localhost:3000/photo/update/${plantPhotoId}`, {
             method: 'PUT',
             body: JSON.stringify({notes: {photo: plantPhoto}}),
@@ -35,14 +35,14 @@ const NotePhoto = (props) => {
         //     <ModalHeader></ModalHeader>
         // </Modal>
         <div>
-            <Form onSubmit={addPhoto}>
+            {/* <Form onSubmit={addPhoto}>
                 <FormGroup>
                     <Label htmlFor="photo">Would you like to add a photo?</Label>
-                    <Input name="photo" value={plantPhotoId} onChange={(e) => setPlantPhotoId(e.target.value)}/>
+                    <Input name="photo" onChange={(e) => setPlantPhotoId(e.target.value)}/>
                 </FormGroup>
                 <Button type="submit">Add your photo</Button>
-            </Form>
-            {/* <Button className= "button" onClick={() => {addPhoto() }}>Add Photo</Button> */}
+            </Form> */}
+            <Button className= "button" onClick={() => {addPhoto() }}>Add Photo</Button>
         </div>
     )
 }

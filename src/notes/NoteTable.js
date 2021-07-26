@@ -47,7 +47,8 @@ const NoteTable = (props) => {
                     </tr>
                 )
             }
-        })
+        }
+        )
     
     }
 
