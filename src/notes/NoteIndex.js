@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Container, Row, Button, Modal, ModalBody, ModalHeader } from 'reactstrap';
+import { Row, Button, Modal, ModalBody, ModalHeader } from 'reactstrap';
 import NoteEdit from './NoteEdit';
 import NoteTable from './NoteTable';
 import NoteAdd from './NoteAdd';
@@ -69,8 +69,8 @@ return(
                         <Button onClick={toggle} className="modalCloseBtn">X</Button>
                     </ModalHeader>
                         <ModalBody>
-                                <NoteAdd fetchNotes={fetchNotes} token={props.token} />
-                            </ModalBody>
+                            <NoteAdd fetchNotes={fetchNotes} token={props.token} />
+                        </ModalBody>
                     </Modal>
                     
                     </Row>

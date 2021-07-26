@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const NoteEdit = (props) => {
     const [editPlant, setEditPlant] = useState(props.noteToUpdate.plant_name);
@@ -23,10 +23,6 @@ const NoteEdit = (props) => {
 
 
     return(
-        //doing a modal would give ability to open and close
-        // <Modal isOpen={true}>
-        //     <ModalHeader></ModalHeader>
-        // </Modal>
         <div>
             <Form onSubmit={noteUpdate}>
                 <FormGroup>

@@ -19,7 +19,6 @@ const NoteTable = (props) => {
             console.log(props.notes)
             return (
                 <tr key={index}>
-                    {/* <th scope="row">{note.id}</th> */}
                     <th scope="row" className="plantText">{note.plant_name}</th>
                     <td className="noteText">{note.note}</td>
                     <td>
