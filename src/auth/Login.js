@@ -53,7 +53,7 @@ const Login = (props) => {
                         <Button onClick={toggle} className="modalCloseBtn">X</Button>
                     </ModalHeader>
                         <ModalBody>
-                                <Signup />
+                                <Signup updateToken={props.updateToken} />
                             </ModalBody>
                     </Modal>
                 </Form>

@@ -19,12 +19,13 @@ const NoteTable = (props) => {
             console.log(props.notes)
             return (
                 <tr key={index}>
-                    {/* <th>{note.photo}</th> */}
-                    <th scope="row">{note.plant_name}</th>
-                    <td>{note.note}</td>
+                    {/* <th scope="row">{note.id}</th> */}
+                    <th scope="row" className="plantText">{note.plant_name}</th>
+                    <td className="noteText">{note.note}</td>
                     <td>
-                        <Button className="button" onClick={() => { props.editUpdateNote(note); props.updateOn() }}>edit</Button>
-                        <Button className= "button" onClick={() => { if(window.confirm('Are you sure you want to delete this note?')) deleteNote(note) }}>delete</Button>
+                        <Button className="editBtn" onClick={() => { props.editUpdateNote(note); props.updateOn() }}>edit</Button>
+                        <br />
+                        <Button className= "deleteBtn" onClick={() => { if(window.confirm('Are you sure you want to delete this note?')) deleteNote(note) }}>delete</Button>
                     </td>
                 </tr>
             )
@@ -33,20 +34,21 @@ const NoteTable = (props) => {
 
     return (
         <>
-            <h3 >Your Plant Notes</h3>
-            <hr />
-            <Table striped>
+        <div className="notesTableDiv">
+            <br />
+            <Table borderless>
                 <thead>
                     <tr>
-                        {/* <th>Plant Photo</th> */}
-                        <th>Plant Name</th>
-                        <th>Plant Note</th>
+                        <th className="noteHeaderText">Plant Name</th>
+                        {/* <th>Plant Name</th> */}
+                        <th className="noteHeaderText">Plant Note</th>
                     </tr>
                 </thead>
                 <tbody>
                     {noteMapper()}
                 </tbody>
             </Table>
+            </div>
         </>
     )
 }
