@@ -93,14 +93,12 @@ const NoteIndex = (props) => {
 
                     </Row>
                 </div>
-                {updateActive ? <NoteEdit noteToUpdate={noteToUpdate} updateOff={updateOff} token={props.token} fetchNotes={fetchNotes} /> : <> </>}
-                
                 <NoteTable notes={notes} editUpdateNote={editUpdateNote} getPhoto={getPhoto} updateOn={updateOn} updatePhotoOn={updatePhotoOn} fetchNotes={fetchNotes} token={props.token} />
                 {/* {updateActive ? <NoteEdit noteToUpdate={noteToUpdate} updateOff={updateOff} token={props.token} fetchNotes={fetchNotes}/>: <> </>} */}
-                
+
                 {updateActive ?
                     <NoteEdit noteToUpdate={noteToUpdate} updateOff={updateOff} token={props.token} fetchNotes={fetchNotes} /> : <> </>}
-                
+
                 {updateActivePhoto ?
                     <NotePhoto editPhoto={editPhoto} updatePhotoOff={updatePhotoOff} token={props.token} fetchNotes={fetchNotes} /> : <> </>}
 

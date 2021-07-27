@@ -12,7 +12,9 @@ const NotePhoto = (props) => {
         // event.preventDefault();
         fetch(`http://localhost:3000/photo/update/${plantPhotoId}`, {
             method: 'PUT',
-            body: JSON.stringify({notes: {photo: plantPhoto}}),
+            body: JSON.stringify(
+                {notes: 
+                    {plant_name: plantPhoto}}),
             // body: JSON.stringify({notes: {plant_name: plantPhotoName}}),
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -43,6 +45,7 @@ const NotePhoto = (props) => {
                 <Button type="submit">Add your photo</Button>
             </Form> */}
             <Button className= "button" onClick={() => {addPhoto() }}>Add Photo</Button>
+            {/* <Button className= "button" onClick={() => {props.getPhoto(); props.updatePhotoOn(); if(window.confirm('Are you sure you want to add a photo?')) addPhoto() }}>notephoto button</Button> */}
         </div>
     )
 }
