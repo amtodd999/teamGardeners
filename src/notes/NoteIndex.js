@@ -79,7 +79,7 @@ return(
             <Row>
                 <h3>welcome!</h3>
                 <p>keep track of all your gardening and plant progress by adding a note! If you find additional information edit your note, and if you no longer need the information (way to go gardening master!) simply delete it.</p>
-                <Button id="logoutBtn" size="sm" onClick={clearToken} className="logoutBtn">logout</Button>
+                <Button id="logoutBtn" size="sm" onClick={props.clickLogout} className="logoutBtn">logout</Button>
                 <Button onClick={toggle} className="addNoteBtn">add note</Button>
                     <Modal isOpen={modal} toggle={toggle} className={className}>
                     <ModalHeader className="modalHeader">
