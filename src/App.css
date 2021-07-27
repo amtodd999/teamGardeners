@@ -48,6 +48,7 @@
   font-weight: 600;
   text-align: center;
   height: auto;
+  width: auto;
 }
 
 .notesViewDiv {
@@ -107,6 +108,10 @@
   height: auto;
 }
 
+.loginDiv p {
+  padding: 10% !important;
+}
+
 .noteDivBtn {
   display: block;
   margin-left: auto;
@@ -129,6 +134,7 @@ p {
   font-family: 'Nothing You Could Do', cursive !important;
   font-size: 30px;
   color: #423138;
+  text-align: left;
 }
 
 .noteText {
@@ -142,6 +148,7 @@ p {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   color: #846270;
+  text-align: left;
 }
 
 /* button style */
@@ -156,7 +163,7 @@ p {
   border: 0 !important;
   padding: 10px 25px 10px 25px !important;
   text-align: center !important;
-  margin-left: 46px !important;
+  margin-left: 20% !important;
   float: left !important;
 }
 .signUpBtn:hover {
@@ -172,7 +179,7 @@ p {
   color: #f0eada !important;
   border: 0 !important;
   padding: 10px 25px 10px 25px !important;
-  margin-right: 46px !important;
+  margin-right: 20% !important;
   float: right !important;
 }
 .loginBtn:hover {
@@ -215,12 +222,13 @@ p {
 .editBtn {
   background-color: #423138 !important;
   border-radius: 15px !important;
-  width: 30% !important;
+  width: auto !important;
   font-family: 'Raleway', sans-serif !important;
   font-weight: 700 !important;
   font-size: 20px !important;
   color: #f0eada !important;
   margin-top: 5px !important;
+  padding: 10px 20px 10px 20px !important;
 }
 .editBtn:hover {
   background-color: #30673f !important;
@@ -229,7 +237,7 @@ p {
 .deleteBtn {
   background-color: #423138 !important;
   border-radius: 15px !important;
-  width: 30% !important;
+  width: auto !important;
   font-family: 'Raleway', sans-serif !important;
   font-weight: 700 !important;
   font-size: 20px !important;
@@ -237,6 +245,7 @@ p {
   margin-top: 5px !important;
   text-align: center !important;
   border: none !important;
+  padding: 10px !important;
 }
 
 .deleteBtn:hover {
@@ -251,9 +260,11 @@ p {
   background-color: #dfe2ed !important;
   border: 0 !important;
   border-radius: 20px !important;
-  margin: 5px 5px 5px 35px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 10px;
   width: 80% !important;
-  height: 20px !important;
+  height: 10% !important;
   padding: 20px !important; 
   font-family: 'Raleway', sans-serif !important;
   font-weight: 700 !important;
@@ -274,9 +285,11 @@ p {
   background-color: #dfe2ed !important;
   border: 0 !important;
   border-radius: 20px !important;
-  margin: 10px 5px 20px 35px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 20px;
+  height: 10% !important;
   width: 80% !important;
-  height: 20px !important;
   padding: 20px !important; 
   font-family: 'Raleway', sans-serif !important;
   font-weight: 700 !important;

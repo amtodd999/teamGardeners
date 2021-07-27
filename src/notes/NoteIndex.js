@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Row, Button, Modal, ModalBody, ModalHeader } from 'reactstrap';
+import React, {useState, useEffect} from 'react';
+import { Row, Button, Modal, ModalBody, ModalHeader } from 'reactstrap';
 import NoteEdit from './NoteEdit';
 import NoteTable from './NoteTable';
 import NoteAdd from './NoteAdd';
@@ -65,32 +65,30 @@ const NoteIndex = (props) => {
     const clearToken = () => {
         localStorage.clear();
         setSessionToken('');
-    }
+      }
 
-    useEffect(() => {
-        fetchNotes();
-    }, [])
-    return (
-
-        <div className="bgDiv">
-
-            <img src={logo} alt="Team Gardeners Logo" className="logoImg" />
-            <div className="notesViewDiv">
-                <div className="noteDivBtn">
-                    <Row>
-                        <h3>welcome!</h3>
-                        <p>keep track of all your gardening and plant progress by adding a note! If you find additional information edit your note, and if you no longer need the information (way to go gardening master!) simply delete it.</p>
-                        <Button id="logoutBtn" size="sm" onClick={props.clickLogout} className="logoutBtn">logout</Button>
-                        <Button onClick={toggle} className="addNoteBtn">add note</Button>
-                        <Modal isOpen={modal} toggle={toggle} className={className}>
-                            <ModalHeader className="modalHeader">
-                                <Button onClick={toggle} className="modalCloseBtn">X</Button>
-                            </ModalHeader>
-                            <ModalBody>
-                                <NoteAdd fetchNotes={fetchNotes} token={props.token} />
-                            </ModalBody>
-                        </Modal>
-
+useEffect(() => {
+    fetchNotes();
+}, [])
+return(
+    <div className="bgDiv">
+        
+        <img src={logo} alt="Team Gardeners Logo" className="logoImg"/>
+        <div className="notesViewDiv">
+            <div className="noteDivBtn">
+            <Row>
+                <h3>welcome!</h3>
+                <p>keep track of all your gardening and plant progress by adding a note! If you find additional information edit your note, and if you no longer need the information (way to go gardening master!) simply delete it.</p>
+                <Button id="logoutBtn" size="sm" onClick={clearToken} className="logoutBtn">logout</Button>
+                <Button onClick={toggle} className="addNoteBtn">add note</Button>
+                    <Modal isOpen={modal} toggle={toggle} className={className}>
+                    <ModalHeader className="modalHeader">
+                        <Button onClick={toggle} className="modalCloseBtn">X</Button>
+                    </ModalHeader>
+                        <ModalBody>
+                            <NoteAdd fetchNotes={fetchNotes} token={props.token} />
+                        </ModalBody>
+                    </Modal>
                     </Row>
                 </div>
                 <NoteTable notes={notes} editUpdateNote={editUpdateNote} getPhoto={getPhoto} updateOn={updateOn} updatePhotoOn={updatePhotoOn} fetchNotes={fetchNotes} token={props.token} />
