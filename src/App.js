@@ -1,4 +1,5 @@
 import './App.css';
+import Sitebar from './home/Navbar';
 import NoteIndex from './notes/NoteIndex';
 import Auth from './auth/Auth';
 import React, { useEffect, useState } from 'react';

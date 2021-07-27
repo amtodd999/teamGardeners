@@ -46,7 +46,6 @@ const NoteTable = (props) => {
             // if(props.notes.photo) {
             return (
                 <tr key={index}>
-                    {/* <th scope="row">{note.id}</th> */}
                     <td className="plantText"><img className="plantImg" src={note.photo} alt="No image" />
                     </td>
                     <th scope="row" className="plantText">{note.plant_name}</th>
