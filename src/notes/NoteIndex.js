@@ -4,30 +4,47 @@ import NoteEdit from './NoteEdit';
 import NoteTable from './NoteTable';
 import NoteAdd from './NoteAdd';
 import logo from "./assets/team-gardener-logo.png";
-
+import NotePhoto from './NotePhoto';
 
 const NoteIndex = (props) => {
     const [notes, setNotes] = useState([]);
-    const [updateActive, setUpdateActive] = useState(false); 
+    const [updateActive, setUpdateActive] = useState(false);
+    const [updateActivePhoto, setUpdateActivePhoto] = useState(false);
     const [noteToUpdate, setNoteToUpdate] = useState({});
     const [sessionToken, setSessionToken] = useState('');
+    const [editPhoto, setEditPhoto] = useState({});
 
     const fetchNotes = () => {
         fetch('http://localhost:3000/notes/myNotes', {
             method: 'GET',
-            headers: new Headers ({
+            headers: new Headers({
                 'Content-type': 'application/json',
                 'Authorization': `Bearer ${props.token}`//won't have this until after user stuff is done
             })
-        }).then( (res) => res.json())
-        .then((noteData) => {
-            setNotes(noteData)
-        })
+        }).then((res) => res.json())
+            .then((noteData) => {
+                setNotes(noteData)
+            })
     }
 
     const editUpdateNote = (note) => {
         setNoteToUpdate(note);
         console.log("noteToUpdate " + note);
+        console.log(editPhoto)
+    }
+
+    const getPhoto = (note) => {
+        setEditPhoto(note.id);
+        console.log("noteIndex note id" + note.id);
+
+    }
+
+    const updatePhotoOn = () => {
+        setUpdateActivePhoto(true);
+    }
+
+    const updatePhotoOff = () => {
+        setUpdateActivePhoto(false);
     }
 
     const updateOn = () => {
@@ -42,10 +59,10 @@ const NoteIndex = (props) => {
         className
     } = props;
     const [modal, setModal] = useState(false);
-  
+
     const toggle = () => setModal(!modal);
 
-    const clearToken = () => { 
+    const clearToken = () => {
         localStorage.clear();
         setSessionToken('');
       }
@@ -72,16 +89,20 @@ return(
                             <NoteAdd fetchNotes={fetchNotes} token={props.token} />
                         </ModalBody>
                     </Modal>
-                    
                     </Row>
-                    </div>
-                    {updateActive ? <NoteEdit noteToUpdate={noteToUpdate} updateOff={updateOff} token={props.token} fetchNotes={fetchNotes}/>: <> </>}
-                <NoteTable notes={notes} editUpdateNote={editUpdateNote} updateOn={updateOn} fetchNotes={fetchNotes} token={props.token} />
+                </div>
+                <NoteTable notes={notes} editUpdateNote={editUpdateNote} getPhoto={getPhoto} updateOn={updateOn} updatePhotoOn={updatePhotoOn} fetchNotes={fetchNotes} token={props.token} />
                 {/* {updateActive ? <NoteEdit noteToUpdate={noteToUpdate} updateOff={updateOff} token={props.token} fetchNotes={fetchNotes}/>: <> </>} */}
-            
+
+                {updateActive ?
+                    <NoteEdit noteToUpdate={noteToUpdate} updateOff={updateOff} token={props.token} fetchNotes={fetchNotes} /> : <> </>}
+
+                {updateActivePhoto ?
+                    <NotePhoto editPhoto={editPhoto} updatePhotoOff={updatePhotoOff} token={props.token} fetchNotes={fetchNotes} /> : <> </>}
+
+            </div>
         </div>
-    </div>
-)
+    )
 }
 
 export default NoteIndex;

@@ -35,8 +35,7 @@ const Signup = (props) => {
             (response) => response.json()
         ).then((data) => {
             props.updateToken(data.token)
-
-            // console.log(data.token)
+            console.log(data.token)
             alert("You are now signed up! Please login to create notes.")
             console.log(data)
         })
@@ -47,10 +46,10 @@ const Signup = (props) => {
             <h4 className="signupHeader">create an account</h4>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                    <Input onChange={(e) => setEmail(e.target.value)} name="email" value={email} placeholder="email" className="formInputEmail"/>
+                    <Input onChange={(e) => setEmail(e.target.value)} name="email" value={email} type="email" placeholder="email" className="formInputEmail" required/>
                 </FormGroup>
                 <FormGroup>
-                    <Input onChange={(e) => setPassword(e.target.value)} name="password" type="password" value={password} placeholder="password" className="formInputPassword" />
+                    <Input onChange={(e) => setPassword(e.target.value)} name="password" type="password" value={password} placeholder="password" className="formInputPassword" minlength="5"/>
                 </FormGroup>
                 <Button type="submit" className="modalSignupBtn">Sign Up</Button>
                 

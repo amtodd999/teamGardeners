@@ -1,29 +1,33 @@
+import '../App.css';
 import React, { useState } from 'react';
+import logo from "../assets/team-gardener-logo.png";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const NoteAdd = (props) => {
     const [plantName, setPlantName] = useState('');
     const [note, setNote] = useState('');
+    const [plantPhoto, setPlantPhoto] = useState('');
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch('http://localhost:3000/notes/add/', {
-            method: 'POST',
-            body: JSON.stringify({ notes: { plant_name: plantName, note: note } }),
-            headers: new Headers({
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${props.token}`
-            })
-        }).then((res) => res.json())
-            .then((plantData) => {
-                console.log(plantData);
-                setPlantName('');
-                setNote('');
-                props.fetchNotes();
-            })
-    }
-
+            fetch('http://localhost:3000/notes/add/', {
+                method: 'POST',
+                body: JSON.stringify({ notes: { plant_name: plantName, note: note } }),
+                headers: new Headers({
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${props.token}`
+                })
+            }).then((res) => res.json())
+                .then((plantData) => {
+                    console.log(plantData);
+                    setPlantName('');
+                    setNote('');
+                    props.fetchNotes();
+                })
+        }
+        
     return (
         <>
             <h4 className="signupHeader">record a plant note</h4>
