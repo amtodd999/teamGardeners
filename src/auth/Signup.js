@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Form, FormGroup, Label, Input, Button} from 'reactstrap';
+import {Form, FormGroup, Input, Button} from 'reactstrap';
 
 // Create variables in order to pull information from the DOM (props)
 // and set it up to be easily usable within the fetch.  Fetch from the user
@@ -35,11 +35,8 @@ const Signup = (props) => {
             (response) => response.json()
         ).then((data) => {
             props.updateToken(data.token)
-
             console.log(data.token)
             console.log(data)
-
-
         })
     };
 
