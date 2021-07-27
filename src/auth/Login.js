@@ -33,6 +33,20 @@ const Login = (props) => {
     
     return(
         <div className="bgDiv">
+            <div id="flower">
+                 <div id="petalsOne">
+                    <div id="p1"></div>
+                    <div id="p2"></div>
+                    <div id="p3"></div>
+                    <div id="p4"></div>
+                </div> 
+                    <div id="petalsTwo">
+                    <div id="p5"></div>
+                    <div id="p6"></div>
+                    <div id="p7"></div>
+                    <div id="p8"></div>
+                </div>
+            </div>
             <div className="loginDiv" fluid="sm">
             <img src={logo} alt="Team Gardeners Logo" className="logoImgLogin"/>
                 <p>Welcome to your plant notebook! Keep notes safe and updated with our handy note keeper! Let the journey of gardening begin!</p>
@@ -50,8 +64,9 @@ const Login = (props) => {
                             <Button onClick={toggle} className="modalCloseBtn">X</Button>
                         </ModalHeader>
                         <ModalBody>
-                            <Signup updateToken={props.updateToken} />
-                        </ModalBody>
+                                <Signup updateToken={props.updateToken}/>
+
+                               </ModalBody>
                     </Modal>
                 </Form>
             </div>
