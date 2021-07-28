@@ -66,7 +66,7 @@ const Login = (props) => {
                         <ModalBody>
                                 <Signup updateToken={props.updateToken}/>
 
-                               </ModalBody>
+                            </ModalBody>
                     </Modal>
                 </Form>
             </div>
