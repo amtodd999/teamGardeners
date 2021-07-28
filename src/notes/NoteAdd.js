@@ -9,25 +9,42 @@ const NoteAdd = (props) => {
     const [plantPhoto, setPlantPhoto] = useState('');
 
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
-            fetch('http://localhost:3000/notes/add/', {
-                method: 'POST',
-                body: JSON.stringify({ notes: { plant_name: plantName, note: note } }),
-                headers: new Headers({
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${props.token}`
+        fetch('http://localhost:3000/notes/add/', {
+            method: 'POST',
+            body: JSON.stringify({ notes: { plant_name: plantName, note: note } }),
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${props.token}`
+            })
+        }).then((res) => res.json())
+            .then((res) => {
+                fetch(`http://localhost:3000/photo/update/${res.id}`, {
+                    method: 'PUT',
+                    body: JSON.stringify(
+                        {notes: 
+                            {plant_name: res.plant_name}}),
+                    // body: JSON.stringify({notes: {plant_name: plantPhotoName}}),
+                    headers: new Headers({
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${props.token}`
+                    })
                 })
-            }).then((res) => res.json())
-                .then((plantData) => {
-                    console.log(plantData);
-                    setPlantName('');
-                    setNote('');
-                    props.fetchNotes();
+                .then(() => {
+                    props.fetchNotes(); 
                 })
-        }
-        
+            })
+            .then((plantData) => {
+                console.log(plantData);
+                setPlantName('');
+                setNote('');
+                props.fetchNotes();
+            })
+    }
+
     return (
         <>
             <h4 className="signupHeader">record a plant note</h4>
@@ -38,8 +55,8 @@ const NoteAdd = (props) => {
                 <FormGroup>
                     <Input name="note" type="textarea" value={note} onChange={(e) => setNote(e.target.value)} placeholder="plant note" className="formInputNote" />
                 </FormGroup>
-                <br/>
-                <Button className="modalSignupBtn" type="submit">save</Button>
+                <br />
+                <Button onClick={props.toggle} className="modalSignupBtn" type="submit">save</Button>
             </Form>
         </>
     )
