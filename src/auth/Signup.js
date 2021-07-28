@@ -50,7 +50,7 @@ const Signup = (props) => {
                     <Input onChange={(e) => setEmail(e.target.value)} name="email" value={email} type="email" placeholder="email" className="formInputEmail" required />
                 </FormGroup>
                 <FormGroup>
-                    <Input onChange={(e) => setPassword(e.target.value)} name="password" type="password" value={password} placeholder="password" className="formInputPassword" minlength="5" />
+                    <Input onChange={(e) => setPassword(e.target.value)} name="password" type="password" value={password} placeholder="password" className="formInputPassword" minlength="5" required  />
                 </FormGroup>
                 <Button type="submit" className="modalSignupBtn">Sign Up</Button>
 
