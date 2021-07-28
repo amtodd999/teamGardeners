@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, FormGroup, Input, Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import logo from "./assets/team-gardener-logo.png";
 import Signup from "./Signup";
+import APIURL from '../helpers/environment';
 
 const Login = (props) => {
     const [email, setEmail] = useState('');
@@ -10,7 +11,9 @@ const Login = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        fetch("http://localhost:3000/user/login", {
+        // console.log(email, password);
+        // fetch("http://localhost:3000/user/login", {
+        fetch(`${APIURL}/user/login`, {
             method: 'POST',
             body: JSON.stringify({ user: { email: email, password: password } }),
             headers: new Headers({
@@ -66,7 +69,7 @@ const Login = (props) => {
                         <ModalBody>
                                 <Signup updateToken={props.updateToken}/>
 
-                               </ModalBody>
+                            </ModalBody>
                     </Modal>
                 </Form>
             </div>

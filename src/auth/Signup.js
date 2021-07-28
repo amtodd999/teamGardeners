@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
-import {Form, FormGroup, Input, Button} from 'reactstrap';
+import React, { useState } from 'react';
+import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import APIURL from '../helpers/environment';
 
 // Create variables in order to pull information from the DOM (props)
 // and set it up to be easily usable within the fetch.  Fetch from the user
@@ -25,9 +26,10 @@ const Signup = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(email, password);
-        fetch("http://localhost:3000/user/create", {
-            method: 'POST', 
-            body: JSON.stringify({user:{email: email, password: password}}),
+        // fetch("http://localhost:3000/user/create", {
+        fetch(`${APIURL}/user/create`, {
+            method: 'POST',
+            body: JSON.stringify({ user: { email: email, password: password } }),
             headers: new Headers({
                 'Content-Type': 'application/json'
             })
@@ -40,18 +42,18 @@ const Signup = (props) => {
         })
     };
 
-    return(
-        <div> 
+    return (
+        <div>
             <h4 className="signupHeader">create an account</h4>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                    <Input onChange={(e) => setEmail(e.target.value)} name="email" value={email} type="email" placeholder="email" className="formInputEmail" required/>
+                    <Input onChange={(e) => setEmail(e.target.value)} name="email" value={email} type="email" placeholder="email" className="formInputEmail" required />
                 </FormGroup>
                 <FormGroup>
-                    <Input onChange={(e) => setPassword(e.target.value)} name="password" type="password" value={password} placeholder="password" className="formInputPassword" minlength="5"/>
+                    <Input onChange={(e) => setPassword(e.target.value)} name="password" type="password" value={password} placeholder="password" className="formInputPassword" minlength="5" required  />
                 </FormGroup>
                 <Button type="submit" className="modalSignupBtn">Sign Up</Button>
-                
+
             </Form>
         </div>
     );
