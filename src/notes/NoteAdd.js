@@ -1,7 +1,7 @@
 import '../App.css';
 import React, { useState } from 'react';
 import logo from "../assets/team-gardener-logo.png";
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Input } from 'reactstrap';
 
 const NoteAdd = (props) => {
     const [plantName, setPlantName] = useState('');
@@ -39,7 +39,7 @@ const NoteAdd = (props) => {
                     <Input name="note" type="textarea" value={note} onChange={(e) => setNote(e.target.value)} placeholder="plant note" className="formInputNote" />
                 </FormGroup>
                 <br/>
-                <Button className="modalSignupBtn" type="submit">save</Button>
+                <Button onClick={props.toggle} className="modalSignupBtn" type="submit">save</Button>
             </Form>
         </>
     )
