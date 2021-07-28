@@ -24,7 +24,6 @@ const NoteAdd = (props) => {
             })
         }).then((res) => res.json())
             .then((res) => {
-                // fetch(`http://localhost:3000/photo/update/${res.id}`, {
                 fetch(`${APIURL}/photo/update/${res.id}`, {
                     method: 'PUT',
                     body: JSON.stringify(
