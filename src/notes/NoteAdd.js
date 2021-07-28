@@ -24,20 +24,23 @@ const NoteAdd = (props) => {
             })
         }).then((res) => res.json())
             .then((res) => {
-                fetch(`http://localhost:3000/photo/update/${res.id}`, {
+                // fetch(`http://localhost:3000/photo/update/${res.id}`, {
+                fetch(`${APIURL}/photo/update/${res.id}`, {
                     method: 'PUT',
                     body: JSON.stringify(
-                        {notes: 
-                            {plant_name: res.plant_name}}),
+                        {
+                            notes:
+                                { plant_name: res.plant_name }
+                        }),
                     // body: JSON.stringify({notes: {plant_name: plantPhotoName}}),
                     headers: new Headers({
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${props.token}`
                     })
                 })
-                .then(() => {
-                    props.fetchNotes(); 
-                })
+                    .then(() => {
+                        props.fetchNotes();
+                    })
             })
             .then((plantData) => {
                 console.log(plantData);
