@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import APIURL from '../helpers/environment';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 
@@ -8,7 +9,8 @@ const NoteEdit = (props) => {
 
     const noteUpdate = (event, note) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/notes/update/${props.noteToUpdate.id}`, {
+        // fetch(`http://localhost:3000/notes/update/${props.noteToUpdate.id}`, {
+            fetch(`${APIURL}/notes/update/${props.noteToUpdate.id}`, {
             method: 'PUT',
             body: JSON.stringify({notes: {plant_name: editPlant, note: editNote}}),
             headers: new Headers({

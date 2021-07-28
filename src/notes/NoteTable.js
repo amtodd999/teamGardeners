@@ -1,12 +1,14 @@
 // import React from 'react';
 import { Table, Button } from 'reactstrap';
+import APIURL from '../helpers/environment';
 
 import React, { useState } from 'react';
 
 const NoteTable = (props) => {
 
     const deleteNote = (note) => {
-        fetch(`http://localhost:3000/notes/delete/${note.id}`, {
+        // fetch(`http://localhost:3000/notes/delete/${note.id}`, {
+        fetch(`${APIURL}/notes/delete/${note.id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -31,7 +33,6 @@ const NoteTable = (props) => {
                         <Button className="editBtn" onClick={() => { props.editUpdateNote(note); props.updateOn() }}>edit</Button>
                         <br />
                         <Button className="deleteBtn" onClick={() => { if (window.confirm('Are you sure you want to delete this note?')) deleteNote(note) }}>delete</Button>
-                        <Button className="editBtn" onClick={() => { props.getPhoto(note); props.updatePhotoOn() }}>dumb</Button>
                     </td>
                 </tr>
             )
