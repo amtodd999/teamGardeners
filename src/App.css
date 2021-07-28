@@ -1,45 +1,163 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
 
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .button {
   margin: 1em;
 }
 
-#homepage-row1 {
-  textAlign: 'center';
-  justifyContent: 'center';
-  alignItems: 'center';
+/* ======== flower petals begin ======= */
+
+#flower { 
+  position:relative;
+  margin-left: 1270px;
+  margin-top: 100px;
 }
+
+#petalsOne {
+  width:100px;
+  height:100px;
+  margin-top: 100px 1100px;
+  position:absolute;
+  animation-name:movingpetals1;
+  animation-duration:10s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+
+#petalsTwo {
+  width:100px;
+  height:100px;
+  margin-top: 100px 1100px;
+  position:absolute;
+  animation-name:movingpetals2;
+  animation-duration:10s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+
+@keyframes movingpetals1{
+  0%{
+    transform:rotateZ(0deg);
+  }
+  100%{
+    transform:rotateZ(359deg);
+  }
+}
+
+@keyframes movingpetals2{
+  50%{
+    transform:rotateZ(50deg);
+  }
+  50%{
+    transform:rotateZ(50deg);
+  }
+}
+
+#p1 {
+  width:50px;
+  height:50px;
+  background:#dfe2ed;
+  border-bottom-left-radius:50px;
+  border-top-right-radius:50px;
+  position:absolute;
+  top:0px;
+  left:0px;
+}
+
+#p2 {
+  width:50px;
+  height:50px;
+  background:#423138;
+  border-top-left-radius:50px;
+  border-bottom-right-radius:50px;
+  position:absolute;
+  top:0px;
+  right:0px;
+}
+
+#p3 {
+  width:50px;
+  height:50px;
+  background:#423138;
+  border-top-left-radius:50px;
+  border-bottom-right-radius:50px;
+  position:absolute;
+  bottom:0px;
+  left:0px;
+}
+
+#p4 {
+  width:50px;
+  height:50px;
+  background:#dfe2ed;
+  border-bottom-left-radius:50px;
+  border-top-right-radius:50px;
+  position:absolute;
+  bottom:0px;
+  right:0px;
+}
+#p5 {
+  width:50px;
+  height:50px;
+  background:#30673f;
+  border-bottom-left-radius:50px;
+  border-top-right-radius:50px;
+  position:absolute;
+  top:0px;
+  left:0px;
+}
+
+#p6 {
+  width:50px;
+  height:50px;
+  background:#30673f;
+  border-top-left-radius:50px;
+  border-bottom-right-radius:50px;
+  position:absolute;
+  top:0px;
+  right:0px;
+}
+
+#p7 {
+  width:50px;
+  height:50px;
+  background:#30673f;
+  border-top-left-radius:50px;
+  border-bottom-right-radius:50px;
+  position:absolute;
+  bottom:0px;
+  left:0px;
+}
+
+#p8 {
+  width:50px;
+  height:50px;
+  background:#30673f;
+  border-bottom-left-radius:50px;
+  border-top-right-radius:50px;
+  position:absolute;
+  bottom:0px;
+  right:0px;
+}
+/* ======== flower petals end ======= */
 
 /* ======== login page ======= */
 
 /* logo style */
+
+.logoImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10%;
+  height: auto;
+  margin-top: 30px
+}
 
 .logoImgLogin {
   display: block;
@@ -48,10 +166,56 @@
   width: 50%;
   height: auto;
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 /* div style */
+
+.mainDiv {
+  background-color: #afb6d1;
+  border-radius: 30px;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  margin: 20px 80px 80px 80px;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 800;
+  font-size: 40px;
+  color:#423138;
+  font-weight: 600;
+  text-align: center;
+  height: auto;
+  width: auto;
+}
+
+.notesViewDiv {
+  background-color: #afb6d1;
+  border-radius: 30px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: 30px 60px 30px 60px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.notesViewDiv h3 {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600;
+  font-size: 40px;
+  color:#423138;
+  text-align: center;
+}
+
+.notesTableDiv {
+  background-color: #dfe2ed;
+  background-image: url("https://www.transparenttextures.com/patterns/beige-paper.png");
+  border-radius: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
 
 .bgDiv {
   position: fixed;
@@ -60,6 +224,7 @@
   height: 100%;
   background-size: cover;
   background-image: url('assets/team-gardener-bg.png');
+  overflow: scroll;
 }
 
 .loginDiv {
@@ -79,12 +244,47 @@
   height: auto;
 }
 
+.loginDiv p {
+  padding: 10% !important;
+}
+
+.noteDivBtn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  
+}
+
 /* text style */
 
 p {
   font-family: 'Raleway', sans-serif;
   font-size: 15px;
-  padding: 0px 30px 0px 30px;
+  padding: 10px 10px 10px 10px;
+}
+
+.plantText {
+  font-family: 'Nothing You Could Do', cursive !important;
+  font-size: 30px;
+  color: #423138;
+  text-align: left;
+}
+
+.noteText {
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  color: #423138;
+  text-align: left;
+}
+
+.noteHeaderText {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #846270;
+  text-align: left;
 }
 
 /* button style */
@@ -99,7 +299,7 @@ p {
   border: 0 !important;
   padding: 10px 25px 10px 25px !important;
   text-align: center !important;
-  margin-left: 46px !important;
+  margin-left: 20% !important;
   float: left !important;
 }
 .signUpBtn:hover {
@@ -115,11 +315,79 @@ p {
   color: #f0eada !important;
   border: 0 !important;
   padding: 10px 25px 10px 25px !important;
-  margin-right: 46px !important;
+  margin-right: 20% !important;
   float: right !important;
 }
 .loginBtn:hover {
   background-color: #30673f !important;
+}
+
+.addNoteBtn {
+  background-color: #423138 !important;
+  border-radius: 15px !important;
+  width: 10% !important;
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  color: #f0eada !important;
+  margin-left: 1%;
+  margin-top: 5px !important;
+}
+.addNoteBtn:hover {
+  background-color: #30673f !important;
+}
+
+.logoutBtn {
+  background-color: #423138 !important;
+  border-radius: 15px !important;
+  width: 10% !important;
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  color: #f0eada !important;
+  margin-left: 39%;
+  margin-top: 5px !important;
+}
+
+.logoutBtn:hover {
+  background-color: #f0eada !important;
+  color: #423138 !important;
+  border: none;
+}
+
+.editBtn {
+  background-color: #423138 !important;
+  border-radius: 15px !important;
+  width: auto !important;
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  color: #f0eada !important;
+  margin-top: 5px !important;
+  padding: 10px 20px 10px 20px !important;
+}
+.editBtn:hover {
+  background-color: #30673f !important;
+}
+
+.deleteBtn {
+  background-color: #423138 !important;
+  border-radius: 15px !important;
+  width: auto !important;
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  color: #f0eada !important;
+  margin-top: 5px !important;
+  text-align: center !important;
+  border: none !important;
+  padding: 10px !important;
+}
+
+.deleteBtn:hover {
+  background-color: #f0eada !important;
+  color: #423138 !important;
+  border: none !important;
 }
 
 /* form style */
@@ -128,9 +396,11 @@ p {
   background-color: #dfe2ed !important;
   border: 0 !important;
   border-radius: 20px !important;
-  margin: 5px 5px 5px 35px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 10px;
   width: 80% !important;
-  height: 20px !important;
+  height: 10% !important;
   padding: 20px !important; 
   font-family: 'Raleway', sans-serif !important;
   font-weight: 700 !important;
@@ -151,9 +421,11 @@ p {
   background-color: #dfe2ed !important;
   border: 0 !important;
   border-radius: 20px !important;
-  margin: 10px 5px 20px 35px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 20px;
+  height: 10% !important;
   width: 80% !important;
-  height: 20px !important;
   padding: 20px !important; 
   font-family: 'Raleway', sans-serif !important;
   font-weight: 700 !important;
@@ -175,6 +447,52 @@ p {
   justify-content: center;
 }
 
+.formInputNote {
+  background-color: #dfe2ed !important;
+  border: 0 !important;
+  border-radius: 20px !important;
+  margin-right: 10px !important;
+  width:100% !important;
+  height: 150px !important;
+  padding: 20px !important;
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  color: #846270 !important;
+  border: none !important;
+  overflow: auto !important;
+  outline: none !important;
+
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+
+  resize: none !important; /*remove the resize handle on the bottom right*/
+}
+
+.formInputName {
+  background-color: #dfe2ed !important;
+  border: 0 !important;
+  border-radius: 20px !important;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 100% !important;
+  height: 40px !important;
+  padding: 30px !important; 
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  color: #846270 !important;
+  border: none !important;
+  overflow: auto !important;
+  outline: none !important;
+
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+
+  resize: none !important; /*remove the resize handle on the bottom right*/
+}
 /* modal style */
 
 .modalHeader {
@@ -221,5 +539,33 @@ color: #f0eada !important;
   font-weight: 700 !important;
   font-size: 40px !important;
   color:#423138 !important;
+  padding-bottom: 20px !important;
+}
+
+/* table style */
+
+.tableHeader {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  color:#423138 !important;
+  padding-bottom: 20px !important;
+}
+
+.fetchText {
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  color:#423138 !important;
   padding-bottom: 40px !important;
+}
+
+.tableSize {
+  width: 80%;
+  height: auto;
+}
+
+.plantImg {
+  width: 200px;
+  height: 150px;
 }
